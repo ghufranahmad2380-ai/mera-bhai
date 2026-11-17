@@ -46,8 +46,6 @@ const cardVariants = {
   },
 };
 export function FunZone({ className = '' }: FunZoneProps) {
-  const [isHovering, setIsHovering] = useState(false);
-  
   const cards = [
     { title: 'Scratch & Reveal', desc: 'Scratch the surface to uncover a hidden surprise!', emoji: 'Art', type: 'scratch' },
     { title: 'Parallax Cards', desc: 'Move your mouse to see the 3D tilt effect!', emoji: 'Cards', type: 'parallax' },
@@ -154,7 +152,7 @@ export function FunZone({ className = '' }: FunZoneProps) {
               { img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400&q=80', title: 'Perfect Pull' },
               { img: 'https://images.unsplash.com/photo-1546549032-9571cd6b27df?w=400&q=80', title: 'Golden Crust' },
             ].map((item, i) => (
-              <ParallaxCard key={i} image={item.img} title={item.title} index={i} />
+              <ParallaxCard key={i} image={item.img} title={item.title} />
             ))}
           </div>
         </motion.div>
@@ -169,11 +167,10 @@ export function FunZone({ className = '' }: FunZoneProps) {
     </section>
   );
 }
-function ParallaxCard({ image, title, index }: { image: string; title: string; index: number }) {
+function ParallaxCard({ image, title }: { image: string; title: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const [isHovering, setIsHovering] = useState(false);
 
   const rotateX = useTransform(y, [-1, 1], ['10deg', '-10deg']);
   const rotateY = useTransform(x, [-1, 1], ['-10deg', '10deg']);

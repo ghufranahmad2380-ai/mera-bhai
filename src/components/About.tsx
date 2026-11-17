@@ -73,7 +73,7 @@ export function About({ className = '' }: AboutProps) {
         </motion.div>
 
         <motion.div variants={containerVariants} initial="hidden" animate="visible" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '4rem' }}>
-          {personalityTraits.map((trait, i) => (
+          {personalityTraits.map((trait) => (
             <motion.div
               key={trait.trait}
               variants={cardVariants}
@@ -110,7 +110,7 @@ export function About({ className = '' }: AboutProps) {
         </motion.div>
 
         <motion.div variants={containerVariants} initial="hidden" animate="visible" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
-          {interests.map((interest, i) => (
+          {interests.map((interest, idx) => (
             <motion.div
               key={interest.title}
               variants={cardVariants}
@@ -128,7 +128,7 @@ export function About({ className = '' }: AboutProps) {
               <motion.span
                 style={{ fontSize: '3rem', display: 'block', marginBottom: '1rem' }}
                 animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
-                transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.2 }}
+                transition={{ duration: 3 + idx * 0.5, repeat: Infinity, delay: idx * 0.2 }}
               >
                 {interest.icon}
               </motion.span>
