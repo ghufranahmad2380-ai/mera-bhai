@@ -26,7 +26,7 @@ export function ScratchReveal({
   alt = 'Scratch to reveal',
 }: ScratchRevealProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const revealImgRef = useRef<HTMLImageElement>(null);
+  const revealImgRef = useRef<HTMLImageElement | null>(null);
   const [isRevealed, setIsRevealed] = useState(false);
   const [isScratching, setIsScratching] = useState(false);
   const [scratchedPercent, setScratchedPercent] = useState(0);

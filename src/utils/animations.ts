@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 
 // Physical stagger animation variants
 export const staggerContainer: Variants = {
@@ -23,7 +23,6 @@ export const staggerItem: Variants = {
       stiffness: 100,
       damping: 15,
       mass: 1,
-      duration: 0.8,
     },
   },
 };
@@ -110,7 +109,6 @@ export const imageReveal: Variants = {
       type: 'spring',
       stiffness: 80,
       damping: 15,
-      duration: 1.2,
     },
   },
 };
@@ -269,7 +267,6 @@ export const heroTitleVariants: Variants = {
       type: 'spring',
       stiffness: 80,
       damping: 12,
-      duration: 1,
     },
   },
 };
@@ -299,7 +296,6 @@ export const heroImageVariants: Variants = {
       stiffness: 60,
       damping: 12,
       delay: 0.4,
-      duration: 1.2,
     },
   },
 };

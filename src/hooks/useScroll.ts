@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 interface ScrollPosition {
   x: number;
@@ -54,7 +54,7 @@ export function useScroll(): ScrollPosition {
 
 export function useElementInView(
   options: IntersectionObserverInit = {}
-): [React.RefObject<HTMLElement | null>, boolean] {
+): [React.RefCallback<HTMLElement | null>, boolean] {
   const [isInView, setIsInView] = useState(false);
   const ref = useCallback((node: HTMLElement | null) => {
     if (node) {

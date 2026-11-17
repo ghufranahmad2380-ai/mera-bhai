@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 
 interface GalleryProps {
@@ -42,14 +42,9 @@ const itemVariants = {
 
 export function Gallery({ className = '' }: GalleryProps) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end start'],
-  });
 
   return (
-    <section className={'gallery-section section ' + className} id="gallery" ref={containerRef} style={{ position: 'relative', zIndex: 1 }}>
+    <section className={'gallery-section section ' + className} id="gallery" style={{ position: 'relative', zIndex: 1 }}>
       <div className="container">
         <motion.div variants={containerVariants} initial="hidden" animate="visible" style={{ textAlign: 'center', marginBottom: '3rem' }}>
           <motion.h2 variants={itemVariants} style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 700, marginBottom: '1rem', background: 'linear-gradient(135deg, #FFFFFF 0%, #B7D894 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>

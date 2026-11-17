@@ -182,7 +182,7 @@ function ParallaxCard({ image, title, index }: { image: string; title: string; i
     const el = ref.current;
     if (!el) return;
 
-    const handleMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const handleMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
@@ -230,8 +230,9 @@ function ParallaxCard({ image, title, index }: { image: string; title: string; i
           objectFit: 'cover',
           display: 'block',
           transformStyle: 'preserve-3d',
+          transform: 'rotateX(' + rotateX.get() + 'deg) rotateY(' + rotateY.get() + 'deg) scale(1.1)',
+          transition: 'transform 0.1s linear',
         }}
-        style={{ transform: 'rotateX(' + rotateX.get() + 'deg) rotateY(' + rotateY.get() + 'deg) scale(1.1)', transition: 'transform 0.1s linear' }}
       />
       <motion.div
         style={{
