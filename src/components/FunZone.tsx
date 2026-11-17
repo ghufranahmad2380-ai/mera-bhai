@@ -171,6 +171,7 @@ function ParallaxCard({ image, title }: { image: string; title: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const [isHovering, setIsHovering] = useState(false);
 
   const rotateX = useTransform(y, [-1, 1], ['10deg', '-10deg']);
   const rotateY = useTransform(x, [-1, 1], ['-10deg', '10deg']);
